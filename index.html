@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shmackle VR - Enter the Future</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Arial", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0619;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(26, 0, 42, 0.9);
+            padding: 20px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            color: #b589ff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0px 0px 10px rgba(181, 137, 255, 0.5);
+        }
+
+        .container {
+            padding-top: 100px;
+            text-align: center;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: bold;
+            color: #b589ff;
+            animation: fadeInText 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0.6;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .subtitle {
+            font-size: 24px;
+            color: #d5aaff;
+            margin-top: 10px;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        .section {
+            padding: 80px 20px;
+        }
+
+        .fade-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.5s ease;
+        }
+
+        .fade-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: #b589ff;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #d5aaff;
+            transform: scale(1.05);
+        }
+
+        .trailer {
+            width: 80%;
+            max-width: 800px;
+            margin: 30px auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(181, 137, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Shmackle VR - Enter the Future
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h1 class="title fade-in">Welcome to Shmackle</h1>
+            <p class="subtitle fade-in">A Revolutionary VR Experience Like No Other</p>
+            <a href="https://www.meta.com/en-gb/experiences/shmackle/8557045787751880/" class="btn fade-in" target="_blank">Get on Meta Store</a>
+        </div>
+
+        <div class="section fade-scroll">
+            <h2>Official Trailer</h2>
+            <video class="trailer fade-scroll" controls>
+                <source src="https://scontent-ord5-2.oculuscdn.com/v/t64.7195-25/38984458_1365534141485308_6486797943021231551_n.mp4?_nc_cat=108&ccb=1-7&_nc_sid=b20b63&_nc_ohc=Le8QgOExsjQQ7kNvgFYtMyM&_nc_oc=Adka2mpBrUrpb-945P5mJwj8lCpcDdOxnI6jJm3vHhitTchJsaOL-J8gdpNWSjpXcKY&_nc_zt=28&_nc_ht=scontent-ord5-2.oculuscdn.com&_nc_gid=Hc_ZSamfL1hz8RnlVTOk-A&oh=00_AYEX0kwTAEUcuvHqvI9euLdAo4ZqKnku9x1kaSw3Sk0Cxw&oe=67EB993C" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="section fade-scroll">
+            <h2>About Shmackle Inc.</h2>
+            <p>Shmackle Inc. is dedicated to bringing humanity to the brink of technological assimilation. We strive to keep you safe and informed, for the future of humanity lies in YOUR hands. We are your vehicle to the world you hope for.</p>
+        </div>
+
+        <div class="section fade-scroll">
+            <h2>From the Mind of jmancurly</h2>
+            <p>Shmackle VR is a thrilling adventure born from the creative mind of **jmancurly**, offering an unparalleled immersive experience.</p>
+        </div>
+
+        <div class="section fade-scroll">
+            <h2>Join the Future</h2>
+            <p>Experience cutting-edge graphics, seamless movement, and multiplayer mayhem in virtual reality.</p>
+            <a href="https://www.meta.com/en-gb/experiences/shmackle/8557045787751880/" class="btn" target="_blank">Play Now</a>
+        </div>
+    </div>
+
+    <script>
+        // Fade-in elements on scroll
+        document.addEventListener("DOMContentLoaded", function () {
+            const fadeElements = document.querySelectorAll(".fade-scroll");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>
